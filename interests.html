@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Interests - Théo Zilliox</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">About Me</a></li>
+            <li><a href="projects.html">My Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="interests.html">My Interests</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="centered-text">
+            <h2>My Interests</h2>
+            <p>Apart from electrical engineering, I have several passions to which I devote my free time.</p>
+            <div>
+                <h3>Cinema</h3>
+                <img src="assets/images/cinema.png" alt="Cinema" id="img1">
+                <p>I enjoy cinematography; my favorite genres are drama and science-fiction.</p>
+                <p>The creative process of directing and acting is something I really enjoy! </p>
+                <p>Thanks to an option at the INSA, I had the chance to make a short film: <a href="https://www.example.com" target="_blank">click here to watch!</a></p>
+            </div>
+            <div>
+                <h3>Chess</h3>
+                <img src="assets/images/chess.png" alt="Chess" id="img1">
+                <p>I discovered chess when I was 8, and it's still my favourite game.</p>
+                <p>Each game is different and gives you the chance to practice your strategy and elaborate game plan.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/th%C3%A9o-zilliox-15b088229/" target="_blank"><img src="assets/icons/linkedin.svg" alt="LinkedIn"></a></li>
+            <li><a href="https://github.com/TheoZilliox" target="_blank"><img src="assets/icons/github.svg" alt="GitHub"></a></li>
+            <li><a href="mailto:theo.zilliox@insa-strasbourg.fr"><img src="assets/icons/mail.svg" alt="Email"></a></li>
+            <li><a href="tel:0782863763"><img src="assets/icons/phone.svg" alt="Phone"> 07 82 86 37 63</a></li>
+        </ul>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const transitionOverlay = document.createElement('div');
+            transitionOverlay.classList.add('transition-overlay');
+            document.body.appendChild(transitionOverlay);
+    
+            document.querySelectorAll('nav a').forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetUrl = this.getAttribute('href');
+                    transitionOverlay.classList.add('active');
+                    setTimeout(function() {
+                        window.location.href = targetUrl;
+                    }, 500);
+                });
+            });
+            window.addEventListener('pageshow', function() {
+                transitionOverlay.classList.remove('active');
+            });
+        });
+    </script> 
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - Théo Zilliox</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">About Me</a></li>
+            <li><a href="projects.html">My Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="interests.html">My Interests</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="centered-text">
+            <h2>My projects relative to programming:</h2>
+            <p>Data Analysis, Robot programming, Graphic Interface, Electronic Scale</p>
+            <a href="https://github.com/TheoZilliox" target="_blank">
+                <img src="https://img.shields.io/badge/My_GitHub-Profile-blue" alt="My GitHub Profile" id="git">
+            </a>
+            <div>
+                <img src="assets/images/ebowl.png" alt="E-Bowl Project" id="img1">
+                <p>My project from 12th grade / Year 13: E-Bowl</p>
+            </div>
+            <div>
+                <div class="trio">
+                    <img src="assets/images/stereo_speaker_pcb.png" alt="Stereo Loudspeaker Project">
+                    <img src="assets/images/stereo_speaker_diagram.png" alt="Stereo Loudspeaker Diagram">
+                    <img src="assets/images/stereo_speaker_board.jpg" alt="Stereo Loudspeaker Board">
+                </div>
+                <p>Creating a stereo loudspeaker</p>
+            </div>
+            <div>
+                <div class="duo">
+                    <img src="assets/images/electronic_scale.jpg" alt="Electronic Scale Project">
+                    <img src="assets/images/electronic_scale_diagram.jpg" alt="Electronic Scale Diagram">
+                </div>
+                <p>1st Year INSA Project: Electronic Scale</p>
+            </div>
+            <div>
+                <img src="assets/images/card_dispenser.jpg" alt="Card Dispenser Project" id="img1">
+                <p>2nd Year INSA Project: Card Dispenser</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/th%C3%A9o-zilliox-15b088229/" target="_blank"><img src="assets/icons/linkedin.svg" alt="LinkedIn"></a></li>
+            <li><a href="https://github.com/TheoZilliox" target="_blank"><img src="assets/icons/github.svg" alt="GitHub"></a></li>
+            <li><a href="mailto:theo.zilliox@insa-strasbourg.fr"><img src="assets/icons/mail.svg" alt="Email"></a></li>
+            <li><a href="tel:0782863763"><img src="assets/icons/phone.svg" alt="Phone"> 07 82 86 37 63</a></li>
+        </ul>
+    </footer>
+    <!-- Image Preview Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="imgPreview">
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const transitionOverlay = document.createElement('div');
+            transitionOverlay.classList.add('transition-overlay');
+            document.body.appendChild(transitionOverlay);
+    
+            document.querySelectorAll('nav a').forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetUrl = this.getAttribute('href');
+                    transitionOverlay.classList.add('active');
+                    setTimeout(function() {
+                        window.location.href = targetUrl;
+                    }, 500);
+                });
+            }); 
+            window.addEventListener('pageshow', function() {
+                transitionOverlay.classList.remove('active');
+            });
+
+            // Image modal logic
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("imgPreview");
+            var images = document.querySelectorAll('main img');
+            
+            images.forEach(function(img) {
+                img.addEventListener('click', function(){
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                });
+            });
+
+            var span = document.getElementById("closeModal");
+            span.onclick = function() { 
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
